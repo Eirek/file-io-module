@@ -6,7 +6,6 @@ int main () {
     FILE *fp;
     char filename[80];
     int choice = 0;
-    char *subString;
 
     while(choice != 6) {
         printf("Choose option:\n");
@@ -16,15 +15,17 @@ int main () {
 		printf("4 - Overwrite file by deleting choosen line .\n");
 		printf("5 - Overwrite file by inserting line.\n");
 		printf("6 - Quit.\n");
+        
         scanf("%d", &choice);
-
+        fgetc(stdin);
    
     switch(choice) {
 
         case 1:
             printf("Enter the file name: ");
+            
             scanf("%s", filename);
-    
+            fgetc(stdin);
             printAll(fp, filename);
 
             break;
@@ -32,15 +33,13 @@ int main () {
         case 2:
             printf("Enter the file name: ");
             scanf("%s", filename);
+            fgetc(stdin);
     
             addLine(fp, filename);
             break;
         case 3:
             printf("Enter the file name: ");
             scanf("%s", &filename);
-
-            // printf("Enter the line: ");
-            // scanf("%s", subString);
     
             searchString(fp, filename);
             break;

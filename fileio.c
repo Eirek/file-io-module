@@ -14,6 +14,7 @@ void printAll (FILE *fp, char *filename) {
 
     fp = fopen (filename, "r");
     if (fp != NULL) {
+        fflush(stdin);
         while (fgets (buff, sizeof (buff), fp) != NULL) {
             printf ("%d: %s", ++lineNum, buff);
         }
@@ -23,29 +24,16 @@ void printAll (FILE *fp, char *filename) {
 }
 
 void addLine (FILE *fp, char *filename) {
-    // char newLine[256];
-    //get_string(buf,3);
-    // printf("Enter the line: ");
-    // scanf("%s", newLine);
-
-    // fp = fopen (filename, "a");
     if ((fp = fopen(filename, "a")) == NULL) {
         printf("Couldn't open file %s .\n", filename);
     } else {
-            char buf[100000];
-            char newLine[10000];
+            
+            char newLine[256];
             printf("Enter the newLine: ");
-            //sscanf(buf, "%s", newLine);
-            scanf("%s", newLine);
-            get_string(newLine, 100000);
-            
-            //fprintf(fp, "\n");
-            //fprintf(fp, "%s", newLine);
-            fputs(newLine, fp);
-            
-
+            fgets(newLine, sizeof(newLine),stdin);
+            fprintf(fp, "%s", newLine);
 }
-fclose (fp);
+    fclose (fp);
 }
 
 
@@ -88,14 +76,4 @@ void strUpper(char *str)
 	}
 
 	return;
-}
-
-void get_string(char* buff, size_t size)
-{
-	fflush(stdin);
-    fgets(buff, size, stdin);
-
-	char *pos;
-	if ((pos = strchr(buff, '\n')) != NULL)
-		*pos = '\0';
 }

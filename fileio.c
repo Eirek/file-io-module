@@ -22,7 +22,7 @@ void printAll (FILE *fp, char *filename) {
     }
     printf("\n");
 }
-
+//
 void addLine (FILE *fp, char *filename) {
     if ((fp = fopen(filename, "a")) == NULL) {
         printf("Couldn't open file %s .\n", filename);

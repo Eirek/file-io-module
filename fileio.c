@@ -6,7 +6,7 @@
 #include "fileio.h"
 
 void printAll (FILE *fp, char *filename) {
-    //system("clear");
+    system("clear");
     static char buff[100000];
     int lineNum = 0;
 

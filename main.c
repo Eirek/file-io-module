@@ -39,7 +39,8 @@ int main () {
             break;
         case 3:
             printf("Enter the file name: ");
-            scanf("%s", &filename);
+            scanf("%s", filename);
+            fgetc(stdin);
     
             searchString(fp, filename);
             break;

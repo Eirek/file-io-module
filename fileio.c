@@ -22,7 +22,7 @@ void printAll (FILE *fp, char *filename) {
     }
     printf("\n");
 }
-//
+
 void addLine (FILE *fp, char *filename) {
     if ((fp = fopen(filename, "a")) == NULL) {
         printf("Couldn't open file %s .\n", filename);
@@ -39,7 +39,7 @@ void addLine (FILE *fp, char *filename) {
 
 void searchString (FILE *fp, char *filename){
 
-    char searchString[256];
+    char searchString[100000];
     int lineNum = 1;
     int findResult = 0;
 
@@ -48,7 +48,8 @@ void searchString (FILE *fp, char *filename){
     } else {
             char subString[256];
             printf("Enter the substring: ");
-            scanf("%s", subString);
+            fgets(subString, sizeof(subString),stdin);
+            
 
 
     while (fgets(searchString, sizeof(searchString), fp) != NULL) {

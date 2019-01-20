@@ -45,6 +45,22 @@ int main () {
             searchString(fp, filename);
             break;
 
+        case 4:
+            printf("Enter the file name: ");
+            scanf("%s", filename);
+            fgetc(stdin);
+    
+            deleteLine(fp, filename);
+            break;
+
+        case 5:
+            printf("Enter the file name: ");
+            scanf("%s", filename);
+            fgetc(stdin);
+    
+            insertLine(fp, filename);
+            break;
+
         case 6:
             printf("Shutting down\n");
             break;
